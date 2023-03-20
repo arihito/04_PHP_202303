@@ -15,7 +15,7 @@ $fruits[3] = 'メロン';
 unset($fruits[1]);
 
 echo '<pre>';
-var_dump($fruits);
+var_dump(...$fruits);
 echo '</pre>';
 
 echo '<pre>';
