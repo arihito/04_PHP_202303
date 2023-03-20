@@ -19,3 +19,7 @@ echo implode(' | ', $arr);
 echo '<pre>';
 print_r($arr);
 echo '</pre>';
+
+echo '<pre>';
+print_r($_SERVER);
+echo '</pre>';
