@@ -1,11 +1,8 @@
 <?php
 $birthStone = ['ガーネット', 'アメジスト', 'アクアマリン', 'ダイヤモンド', 'エメラルド', 'パール', 'ルビー', 'ペリドット', 'サファイア', 'オパール', 'トパーズ', 'ターコイズ'];
-
-if (!empty($_POST)) {
-    $month = $_POST['month'];
-    $plusNum = $month + 1;
-    $stoneName = $birthStone[$month];
-}
+$month = $_POST['month'];
+$plusNum = $month + 1;
+$stoneName = $birthStone[$month];
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -19,9 +16,7 @@ if (!empty($_POST)) {
 
 <body>
     <h1>誕生石</h1>
-    <?php if ($_SERVER['REQUEST_METHOD'] === 'POST'): ?>
-        <p><?= $plusNum ?>月の誕生石は<?= $stoneName ?>です！</p>
-    <?php endif; ?>
+    <p><?= $plusNum ?>月の誕生石は<?= $stoneName ?>です！</p>
     <form action="" method="post" novalidate>
         <p>誕生石を選んでください：
             <select name="month">
