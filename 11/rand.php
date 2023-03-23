@@ -5,3 +5,4 @@ for ($i = 0; $i < count($arrNum); $i++) {
     $total += $arrNum[mt_rand(0, array_key_last($arrNum))];
 }
 echo number_format($total / count($arrNum)) . '円';
+
