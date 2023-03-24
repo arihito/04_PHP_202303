@@ -4,9 +4,19 @@ if (!empty($_POST)) {
     $score = $_POST['score'];
 }
 
-function getScoreResult($score)
+echo '<pre>';
+var_dump($score);
+echo '</pre>';
+
+/**
+ * スコアを引数に指定すると判定結果を返す
+ *
+ * @param mixied|null $score
+ * @return string
+ */
+function getScoreResult(?mixied $score): string
 {
-    if (!is_numeric($score)) {
+    if (!is_numeric($score) || $score == '') {
         return '数値を入力してください';
     } elseif ($score >= 101 || $score < 0) {
         return '不正な点数です';
@@ -16,10 +26,10 @@ function getScoreResult($score)
         return '素晴らしいです！';
     } elseif ($score >= 60) {
         return '合格です';
-    } else {
-        return '不合格です';
     }
+    return '不合格です';
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -35,7 +45,7 @@ function getScoreResult($score)
     <h1>テスト結果判定</h1>
     <form action="" method="post" novalidate>
         <p>点数：
-            <input type="text" name="score" size="3" maxlength="3" value="<?= htmlspecialchars($score, ENT_QUOTES | ENT_HTML5, 'UTF-8') ?>">点
+            <input type="text" name="score" size="3" maxlength="3" value="<?=h($score)?>">点
             <input type="submit" value="判定">
         </p>
     </form>
