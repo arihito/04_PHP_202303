@@ -17,9 +17,13 @@ if (!empty($_POST)) {
     $phone = $_POST['phone'];
 
     $v = new Validation();
-    $error['name']  = $v->validName($name);
-    $error['kana']  = $v->validKana($kana);
-    $error['phone'] = $v->validPhone($phone);
+
+    foreach (['title', 'kana', 'phone'] as $key) {
+        $arr[$key] = $v->validName($key);
+    }
+    // $error['name']  = $v->validName($name);
+    // $error['kana']  = $v->validKana($kana);
+    // $error['phone'] = $v->validPhone($phone);
 }
 
 /**
