@@ -19,3 +19,4 @@ abstract class Car
         $this->tire = $tir;
     }
 }
+
